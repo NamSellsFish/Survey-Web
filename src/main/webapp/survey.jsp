@@ -31,13 +31,13 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<c:if test="${user.getWannaContact() == 'Yes'}">
 			<label>Contact Via:</label>
-			<span>${user.contactVia}</span>
+			<span>${user.contact}</span>
 		</c:if>
-	<form action="/EmailList" method="">
+	<form action="/surveyWeb" method="">
 		<p>To enter another email address, click on the Back button in your
 				browser or the Return button shown below.</p>
 		<input type="hidden" name="action" value="join" />
-		<button> <a href="http://localhost:8080/surveyWeb-0.0.1-SNAPSHOT/">Return</a></button>
+		<!-- <button> <a href="http://localhost:8080/surveyWeb-0.0.1-SNAPSHOT/">Return</a></button> -->
 	</form>
 </body>
 </html>
