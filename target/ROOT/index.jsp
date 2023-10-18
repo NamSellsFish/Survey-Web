@@ -2,28 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Email List</title>
 <link rel="stylesheet" href="./main.css" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-	tailwind.config = {
-		theme: {
-			extend: {
-				keyframes: {
-					rotatecustom: {
-						"0%": {
-							transform: "scale(0)"
-						},
-						"100%": {
-							transform: "scale(1)"
-						}
-					}
-				}
-
-			}
-		}
-	}
-</script>
 </head>
 
 <body>
