@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +7,10 @@
 <link rel="stylesheet" href="./main.css" type="text/css" />
 </head>
 <body>
+	<div>
 		<!-- Breadcrumb -->
 		<c:import url="breadcrumb.html" />
+	</div>
 
 	<h1>Thanks for joining our survey</h1>
 	<p>Here is the information that you entered</p>
@@ -31,16 +32,15 @@
 	<label>You wanna contact? </label>
 	<span>${user.getWannaContact()}</span>
 	<br>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<c:if test="${user.getWannaContact() == 'Yes'}">
 			<label>Contact Via:</label>
 			<span>${user.contact}</span>
 		</c:if>
-	<form action="/surveyWeb" method="">
+	<form action="surveyWeb" method="get">
 		<p>To enter another email address, click on the Back button in your
 				browser or the Return button shown below.</p>
 		<input type="hidden" name="action" value="join" />
-		<!-- <button> <a href="http://localhost:8080/surveyWeb-0.0.1-SNAPSHOT/">Return</a></button> -->
+		<input type="submit" value="Return">
 	</form>
 </body>
 </html>

@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/surveyWeb")
 public class SurveyWebServlet extends HttpServlet {
-	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		String url = "/index.html";
+		String url = "/index.jsp";
 		if (action == null) {
 			action = "join";
 		}
 		if (action == "join") {
-			url = "/index.html";
+			url = "/index.jsp";
+			System.out.println("Test printing EmailListServlet email to console: " + action);
 		} else if (action.equals("add")) {
 			String email = req.getParameter("email");
 			String firstName = req.getParameter("firstName");
@@ -33,9 +35,13 @@ public class SurveyWebServlet extends HttpServlet {
 			req.setAttribute("user", user);
 			url = "/survey.jsp";
 			//
-			getServletContext().getRequestDispatcher(url).forward(req, res);
 		}
+		getServletContext().getRequestDispatcher(url).forward(req, res);
+	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		doPost(req, res);
 	}
 
 }
